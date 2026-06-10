@@ -16,10 +16,13 @@ const stats = [
     <div class="mx-auto grid max-w-7xl items-center gap-16 lg:grid-cols-2">
       <div class="flex justify-center lg:justify-start">
         <div
-          class="glass-card h-72 w-72 border-2 border-brand-light lg:h-80 lg:w-80"
+          class="glass-card glass-3d shine-sweep relative flex h-72 w-72 items-center justify-center overflow-hidden lg:h-80 lg:w-80"
           data-aos="fade-right"
           data-aos-delay="100"
-        ></div>
+        >
+          <span class="bg-glow !h-full !w-full !left-0 !top-0 opacity-70"></span>
+          <span class="relative font-display text-7xl font-bold text-brand-purple/30 lg:text-8xl">UR</span>
+        </div>
       </div>
 
       <div>
@@ -32,17 +35,28 @@ const stats = [
         </h2>
 
         <div
-          class="mt-4 space-y-1 text-sm leading-relaxed text-gray-500"
+          class="mt-4 space-y-4 text-sm leading-relaxed text-gray-500"
           data-aos="fade-left"
           data-aos-delay="200"
         >
-          <p>Men Full Stack dasturchiman va 3 yildan ortiq vaqt davomida</p>
-          <p>veb-ilovalar yaratish bilan shug'ullanaman. Asosan vue/js, Node/js,</p>
-          <p>va typeScript texnologiyalari bilan ishlayman/</p>
-          <p>Har bir loyiha uchun eng yaxshi yechimni topishga harakat qilaman</p>
-          <p>Yangi texnologiyalarni o'rganish va tajribamni boshqalar bilan</p>
-          <p>bo'lishishni yaxshi ko'raman/Ochiq kodli loyihalarga hissa</p>
-          <p>qo'shaman va texnik maqolalar yozaman</p>
+          <p>
+            Vue.js ekosistemasi bo'yicha ixtisoslashgan, 3+ yillik tajribaga ega
+            Full Stack dasturchiman. Yuqori unumdorlikdagi veb-ilovalar yaratish,
+            performance optimizatsiyasi (LCP &lt; 1.5s) va modulli arxitektura
+            bo'yicha kuchli tajribaga egaman. Hozirda Mimsoft'da Frontend Lead
+            sifatida ishlayman.
+          </p>
+          <p>
+            Har bir loyihada toza, qayta ishlatiladigan kod va sifatli
+            foydalanuvchi tajribasiga e'tibor qarataman. Yangi texnologiyalarni
+            o'rganishni, ochiq kodli loyihalarga hissa qo'shishni va texnik
+            maqolalar yozishni yaxshi ko'raman.
+          </p>
+          <p class="text-xs italic text-gray-400">
+            Frontend Lead specializing in the Vue.js ecosystem — high-performance
+            SPAs, performance tuning (LCP &lt; 1.5s), and scalable, modular
+            architecture.
+          </p>
         </div>
 
         <button
@@ -62,7 +76,7 @@ const stats = [
           <template v-for="stat in stats" :key="stat.label">
             <div
               v-if="stat.pill"
-              class="glass-card px-4 py-2"
+              class="glass-card glass-3d shine-sweep group px-4 py-2"
             >
               <p class="text-2xl font-bold text-ink">{{ stat.value }}</p>
               <p class="text-xs text-gray-400">{{ stat.label }}</p>

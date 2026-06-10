@@ -12,14 +12,14 @@ import {
 const channels = [
   {
     label: 'Email',
-    value: 'umidarakhimova@gmail.com',
-    href: 'mailto:umidarakhimova@gmail.com',
+    value: 'rakhimovaumida34@gmail.com',
+    href: 'mailto:rakhimovaumida34@gmail.com',
     icon: Mail
   },
   {
     label: 'Telefon',
-    value: '+998 94 123 45 67',
-    href: 'tel:+998941234567',
+    value: '+998 94 149 30 34',
+    href: 'tel:+998941493034',
     icon: Phone
   },
   {
@@ -52,9 +52,9 @@ const TelegramIcon = {
 }
 
 const socials = [
-  { label: 'GitHub', href: 'https://github.com', icon: Github },
-  { label: 'LinkedIn', href: 'https://linkedin.com', icon: Linkedin },
-  { label: 'Telegram', href: 'https://t.me/', icon: TelegramIcon }
+  { label: 'GitHub', href: 'https://github.com/UmidaJamshidbekovna', icon: Github },
+  { label: 'LinkedIn', href: 'https://www.linkedin.com/in/umida-rakhimova-08b037222/', icon: Linkedin },
+  { label: 'Telegram', href: 'https://t.me/Umida_Raximova34', icon: TelegramIcon }
 ]
 
 const form = reactive({ name: '', email: '', subject: '', message: '' })
@@ -94,7 +94,7 @@ const submit = async () => {
             v-for="c in channels"
             :key="c.label"
             :href="c.href"
-            class="glass-card group flex items-center gap-4 p-5 transition-all hover:-translate-y-0.5 hover:shadow-xl hover:shadow-brand-purple/15"
+            class="glass-card glass-3d shine-sweep group flex items-center gap-4 p-5"
           >
             <span
               class="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-brand-light text-brand-purple transition-colors group-hover:bg-brand-purple group-hover:text-white"
@@ -113,7 +113,7 @@ const submit = async () => {
             </div>
           </a>
 
-          <div class="glass-card p-5">
+          <div class="glass-card glass-3d shine-sweep group p-5">
             <p class="text-xs font-medium uppercase tracking-wider text-gray-500">
               Ijtimoiy tarmoqlar
             </p>
@@ -136,6 +136,7 @@ const submit = async () => {
         <form
           @submit.prevent="submit"
           class="glass-card p-6 sm:p-8"
+          style="box-shadow: 0 1px 0 rgba(255,255,255,0.95) inset, 0 40px 80px -24px rgba(54,0,59,0.28), 0 22px 44px -18px rgba(115,0,126,0.2)"
           data-aos="fade-up"
           data-aos-delay="150"
         >

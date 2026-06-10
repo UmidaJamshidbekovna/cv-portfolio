@@ -28,7 +28,7 @@ import ContactSection from './components/ContactSection.vue'
     <footer
       class="mt-24 border-t border-brand-light bg-white/50 px-6 py-10 text-center text-sm text-gray-500 backdrop-blur-sm"
     >
-      © {{ new Date().getFullYear() }} Umida Rahimova — Built with Vue 3, Vite & TailwindCSS.
+      © {{ new Date().getFullYear() }} Umida Rakhimova — Built with Vue 3, Vite & TailwindCSS.
     </footer>
   </div>
 </template>

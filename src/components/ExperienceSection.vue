@@ -1,11 +1,23 @@
 <script setup>
-import { Rocket, GraduationCap, Code2 } from 'lucide-vue-next'
+import { Heart, Rocket, GraduationCap, Code2 } from 'lucide-vue-next'
 import TimelineItem from './TimelineItem.vue'
 
 const experiences = [
   {
+    company: 'Sovchi.app',
+    period: 'Feb 2026 — Present',
+    role: 'Frontend Developer',
+    stack: 'Nuxt.js · Vue.js · TypeScript',
+    icon: Heart,
+    tasks: [
+      'Building a matchmaking platform with Nuxt 3 and SSR for fast, SEO-friendly pages.',
+      'Developing reusable Vue 3 components and managing state with Pinia.',
+      'Integrating REST APIs for profile matching and secure messaging.'
+    ]
+  },
+  {
     company: 'Mimsoft Company',
-    period: 'May 2025 — Present',
+    period: 'May 2025 — December 2025',
     role: 'Frontend Lead',
     stack: 'React.js · Next.js · Vue.js · Nuxt.js',
     icon: Rocket,

@@ -26,7 +26,7 @@ defineProps({
       <component :is="icon" class="h-4 w-4 text-white" :stroke-width="2" />
     </span>
 
-    <div class="glass-card p-6 transition-all duration-300 hover:-translate-y-0.5 hover:shadow-xl hover:shadow-brand-purple/15">
+    <div class="glass-card glass-3d shine-sweep p-6">
       <div class="flex flex-wrap items-baseline justify-between gap-2">
         <h3 class="text-lg font-semibold text-ink">{{ company }}</h3>
         <span

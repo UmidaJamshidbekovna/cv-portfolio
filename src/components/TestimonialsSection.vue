@@ -38,10 +38,7 @@ const testimonials = [
           </p>
         </div>
 
-        <a
-          href="#contact"
-          class="group inline-flex items-center gap-1.5 rounded-full border border-brand-light bg-white/70 px-4 py-2 text-sm font-medium text-brand-dark backdrop-blur-sm transition-all hover:border-brand-purple hover:text-brand-purple hover:shadow-md hover:shadow-brand-purple/10"
-        >
+        <a href="#contact" class="btn-ghost group !rounded-full !py-2 !px-4 text-sm">
           Fikr qoldirish
           <ArrowRight class="h-4 w-4 text-brand-purple transition-transform group-hover:translate-x-0.5" />
         </a>
@@ -51,7 +48,7 @@ const testimonials = [
         <article
           v-for="(t, index) in testimonials"
           :key="t.name"
-          class="glass-card group relative flex h-full flex-col p-6 transition-all duration-300 hover:-translate-y-1 hover:shadow-xl hover:shadow-brand-purple/15"
+          class="glass-card glass-3d shine-sweep group relative flex h-full flex-col p-6"
           data-aos="fade-up"
           :data-aos-delay="100 + index * 80"
         >
@@ -61,7 +58,7 @@ const testimonials = [
           </p>
           <div class="mt-6 flex items-center gap-3">
             <span
-              class="flex h-10 w-10 items-center justify-center rounded-full bg-brand-purple text-sm font-semibold text-white"
+              class="flex h-10 w-10 items-center justify-center rounded-full bg-gradient-to-br from-brand-purple to-brand-dark text-sm font-semibold text-white shadow-md shadow-brand-purple/40 ring-2 ring-white/60"
             >
               {{ t.name.charAt(0) }}
             </span>

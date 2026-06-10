@@ -1,11 +1,63 @@
 <script setup>
+import { ref, computed, onMounted, onBeforeUnmount } from 'vue'
 import { Phone, Github, Linkedin, Send, Code2, Zap } from 'lucide-vue-next'
 import ProfileCard from './ProfileCard.vue'
 import BadgeFloat from './BadgeFloat.vue'
+
+const firstName = 'Umida'
+const lastName = 'Rakhimova'
+const fullName = `${firstName} ${lastName}`
+const typed = ref('')
+
+const typedFirst = computed(() => typed.value.slice(0, firstName.length))
+const typedSpace = computed(() => (typed.value.length > firstName.length ? ' ' : ''))
+const typedLast = computed(() =>
+  typed.value.length > firstName.length + 1
+    ? typed.value.slice(firstName.length + 1)
+    : ''
+)
+let timer = null
+
+onMounted(() => {
+  let i = 0
+  let phase = 'typing'
+
+  const tick = () => {
+    if (phase === 'typing') {
+      if (i < fullName.length) {
+        typed.value = fullName.slice(0, i + 1)
+        i++
+        timer = setTimeout(tick, 110)
+      } else {
+        phase = 'holding'
+        timer = setTimeout(tick, 1800)
+      }
+    } else if (phase === 'holding') {
+      phase = 'deleting'
+      timer = setTimeout(tick, 60)
+    } else if (phase === 'deleting') {
+      if (i > 0) {
+        typed.value = fullName.slice(0, i - 1)
+        i--
+        timer = setTimeout(tick, 55)
+      } else {
+        phase = 'typing'
+        timer = setTimeout(tick, 500)
+      }
+    }
+  }
+
+  tick()
+})
+
+onBeforeUnmount(() => {
+  if (timer) clearTimeout(timer)
+})
 </script>
 
 <template>
   <section
+    id="home"
     class="relative flex min-h-screen items-center overflow-hidden px-6 py-16 lg:px-20"
   >
     <span class="bg-glow right-[-120px] top-[80px]"></span>
@@ -23,11 +75,16 @@ import BadgeFloat from './BadgeFloat.vue'
         </p>
 
         <h1
-          class="font-display text-6xl font-bold leading-tight text-ink lg:text-7xl"
+          class="font-display text-6xl font-bold leading-tight lg:text-7xl"
           data-aos="fade-right"
           data-aos-delay="200"
         >
-          Umida Rahimova
+          <span class="text-[#782E87]">{{ typedFirst }}</span><span>{{ typedSpace }}</span><span class="text-[#36003B]">{{ typedLast }}</span>
+          <span class="sr-only">Umida Rakhimova</span>
+          <span
+            class="ml-1 inline-block h-[0.85em] w-[3px] translate-y-[0.12em] bg-[#73007E] align-middle animate-caret"
+            aria-hidden="true"
+          ></span>
         </h1>
 
         <p
@@ -52,15 +109,13 @@ import BadgeFloat from './BadgeFloat.vue'
           data-aos="fade-up"
           data-aos-delay="500"
         >
-          <button class="btn-primary">
+          <a href="#projects" class="btn-primary">
             Loyihalarni ko'rish →
-          </button>
-          <button
-            class="flex items-center gap-2 rounded-xl border border-brand-light bg-white/70 px-6 py-3 text-gray-700 backdrop-blur-sm transition-all hover:-translate-y-0.5 hover:border-brand-purple hover:text-brand-purple"
-          >
+          </a>
+          <a href="#contact" class="btn-ghost">
             <Phone class="h-4 w-4" />
             Bog'lanish
-          </button>
+          </a>
         </div>
 
         <div
@@ -71,13 +126,16 @@ import BadgeFloat from './BadgeFloat.vue'
           <span class="text-sm text-gray-400">Ijtimoiy:</span>
           <a
             v-for="(social, i) in [
-              { icon: Github, href: '#' },
-              { icon: Linkedin, href: '#' },
-              { icon: Send, href: '#' }
+              { icon: Github, href: 'https://github.com/UmidaJamshidbekovna', label: 'GitHub' },
+              { icon: Linkedin, href: 'https://www.linkedin.com/in/umida-rakhimova-08b037222/', label: 'LinkedIn' },
+              { icon: Send, href: 'https://t.me/Umida_Raximova34', label: 'Telegram' }
             ]"
             :key="i"
             :href="social.href"
-            class="flex h-8 w-8 items-center justify-center rounded-full border border-brand-light bg-white/70 text-gray-500 backdrop-blur-sm transition-all hover:border-brand-purple hover:text-brand-purple"
+            :aria-label="social.label"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="flex h-9 w-9 items-center justify-center rounded-full border border-white/60 bg-white/70 text-gray-500 shadow-md shadow-brand-purple/10 backdrop-blur-md transition-all hover:-translate-y-0.5 hover:border-brand-purple hover:text-brand-purple hover:shadow-lg hover:shadow-brand-purple/25"
           >
             <component :is="social.icon" class="h-4 w-4" />
           </a>

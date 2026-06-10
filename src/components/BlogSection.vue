@@ -1,14 +1,21 @@
 <script setup>
+import { ref, onMounted } from 'vue'
 import { ArrowRight, CalendarDays, Clock } from 'lucide-vue-next'
 
-const posts = [
+const CHANNEL_URL = 'https://t.me/bintuJamshidbek'
+const covers = ['bg-brand-purple', 'bg-brand-light', 'bg-brand-dark']
+
+// Telegram'dan o'qib bo'lmasa ko'rsatiladigan zaxira (fallback) postlar.
+const fallbackPosts = [
   {
     title: 'Vue 3 Composition API: amaliy qo‘llanma',
     excerpt:
       'Reactivity, composables va katta loyihalarda kodni qanday qilib qayta ishlatiladigan qismlarga ajratish.',
     date: '2026 · Mart',
     readTime: '6 daqiqa',
-    coverClass: 'bg-brand-purple'
+    coverClass: 'bg-brand-purple',
+    image: null,
+    link: CHANNEL_URL
   },
   {
     title: 'LCP ni 1.5s dan past tutish',
@@ -16,7 +23,9 @@ const posts = [
       'Lazy loading, code-splitting va image optimization bo‘yicha production amaliyotlari.',
     date: '2026 · Fevral',
     readTime: '8 daqiqa',
-    coverClass: 'bg-brand-light'
+    coverClass: 'bg-brand-light',
+    image: null,
+    link: CHANNEL_URL
   },
   {
     title: 'Pinia bilan scalable state management',
@@ -24,9 +33,36 @@ const posts = [
       'Store larni modul qilib ajratish, typed actions va SSR bilan ishlashdagi nyanslar.',
     date: '2026 · Yanvar',
     readTime: '5 daqiqa',
-    coverClass: 'bg-brand-dark'
+    coverClass: 'bg-brand-dark',
+    image: null,
+    link: CHANNEL_URL
   }
 ]
+
+const posts = ref(fallbackPosts)
+
+// Telegram kanaldagi oxirgi postlarni /api/blog orqali olib kelamiz.
+// (Lokal `vite dev` da /api ishlamaydi — fallback postlar ko'rinadi. Vercel'da avtomatik ishlaydi.)
+onMounted(async () => {
+  try {
+    const res = await fetch('/api/blog')
+    if (!res.ok) return
+    const data = await res.json()
+    if (Array.isArray(data.posts) && data.posts.length) {
+      posts.value = data.posts.map((p, i) => ({
+        title: p.title,
+        excerpt: p.excerpt,
+        date: p.date,
+        readTime: p.readTime,
+        coverClass: covers[i % covers.length],
+        image: p.image,
+        link: p.link
+      }))
+    }
+  } catch {
+    // tarmoq xatosi — fallback postlar qoladi
+  }
+})
 </script>
 
 <template>
@@ -44,8 +80,10 @@ const posts = [
         </div>
 
         <a
-          href="#blog"
-          class="group inline-flex items-center gap-1.5 rounded-full border border-brand-light bg-white/70 px-4 py-2 text-sm font-medium text-brand-dark backdrop-blur-sm transition-all hover:border-brand-purple hover:text-brand-purple hover:shadow-md hover:shadow-brand-purple/10"
+          href="https://t.me/bintuJamshidbek"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="btn-ghost group !rounded-full !py-2 !px-4 text-sm"
         >
           Barchasi
           <ArrowRight class="h-4 w-4 text-brand-purple transition-transform group-hover:translate-x-0.5" />
@@ -53,14 +91,25 @@ const posts = [
       </div>
 
       <div class="mt-10 grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
-        <article
+        <a
           v-for="(post, index) in posts"
           :key="post.title"
-          class="glass-card group flex h-full flex-col overflow-hidden transition-all duration-300 hover:-translate-y-1 hover:shadow-xl hover:shadow-brand-purple/15"
+          :href="post.link"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="glass-card glass-3d shine-sweep group flex h-full flex-col overflow-hidden"
           data-aos="fade-up"
           :data-aos-delay="100 + index * 80"
         >
+          <img
+            v-if="post.image"
+            :src="post.image"
+            :alt="post.title"
+            loading="lazy"
+            class="aspect-[16/9] w-full object-cover transition-transform duration-500 group-hover:scale-[1.03]"
+          />
           <div
+            v-else
             :class="[
               'aspect-[16/9] w-full transition-transform duration-500 group-hover:scale-[1.03]',
               post.coverClass
@@ -94,7 +143,7 @@ const posts = [
               />
             </span>
           </div>
-        </article>
+        </a>
       </div>
     </div>
   </section>

@@ -1,26 +1,46 @@
 <script setup>
+import { ref } from 'vue'
+
+// Brend logolari simple-icons CDN'dan (to'g'ri ranglar bilan) keladi.
+// `slug` yo'q yoki logo yuklanmasa — avtomatik harf-monogram ko'rsatiladi.
 const skills = [
-  {
-    name: 'Vue/js',
-    delay: 200,
-    svg: `<svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path fill="#41B883" d="M24 1.61h-9.94L12 5.16 9.94 1.61H0l12 20.78z"/><path fill="#34495E" d="M12 5.16L9.94 1.61H4.2L12 15.12l7.8-13.51h-5.74z"/></svg>`
-  },
-  {
-    name: 'Nuxt',
-    delay: 250,
-    svg: `<svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path fill="#00DC82" d="M13.7 18.8h8.1c.26 0 .51-.07.73-.2a1.47 1.47 0 00.54-2.007L17.64 6.41a1.46 1.46 0 00-.54-.54 1.47 1.47 0 00-2.007.54l-1.39 2.407-2.72-4.7a1.47 1.47 0 00-.54-.54 1.47 1.47 0 00-2.007.54L.2 16.593A1.47 1.47 0 00.74 18.6c.22.13.47.2.73.2h5.08c2.014 0 3.498-.88 4.52-2.6l2.48-4.287 1.33-2.296 3.98 6.883h-5.31zm-6.87-2.603l-3.546-.001L8.6 6.41l2.655 4.593-1.775 3.072c-.68 1.12-1.45 1.522-2.65 1.522z"/></svg>`
-  },
-  {
-    name: 'TypeScript',
-    delay: 300,
-    svg: `<svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><rect width="24" height="24" rx="2" fill="#3178C6"/><path fill="#fff" d="M9.5 11.5v1.35h2.15V20h1.7v-7.15H15.5V11.5zM19.42 16.3c0 .4-.1.75-.3 1.05-.2.3-.5.55-.9.7-.4.2-.85.25-1.4.25-.5 0-.95-.05-1.4-.2-.45-.15-.85-.35-1.15-.65l.95-1.05c.2.2.45.35.7.45.25.1.5.15.8.15.3 0 .55-.05.7-.2.2-.1.25-.25.25-.45 0-.15-.05-.3-.15-.4-.1-.1-.25-.2-.45-.3-.2-.1-.45-.15-.8-.3-.4-.15-.75-.3-1.05-.45-.3-.15-.55-.4-.7-.7-.2-.25-.25-.6-.25-.95 0-.4.1-.75.3-1.05.2-.3.5-.5.85-.7.4-.15.8-.2 1.3-.2.4 0 .85.05 1.25.2.4.1.75.3 1.05.55l-.9 1.05c-.25-.2-.5-.3-.7-.4-.25-.1-.5-.15-.75-.15-.25 0-.45.05-.6.15-.15.1-.2.25-.2.4s.05.3.15.4c.1.1.25.2.45.25.2.1.5.2.85.3.45.15.8.3 1.1.45.3.15.55.4.7.65.2.3.25.6.25.95z"/></svg>`
-  },
-  {
-    name: 'Node.js',
-    delay: 350,
-    svg: `<svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path fill="#539E43" d="M12 1.85a1.4 1.4 0 00-.7.19l-7.3 4.22a1.4 1.4 0 00-.7 1.21v8.44c0 .5.27.96.7 1.21l1.91 1.1c.93.46 1.26.46 1.68.46 1.37 0 2.16-.83 2.16-2.28V8.07c0-.12-.1-.21-.22-.21H8.6c-.13 0-.22.09-.22.21v8.33c0 .64-.66 1.28-1.74.74l-1.99-1.15a.24.24 0 01-.12-.2V7.35c0-.08.05-.16.12-.2l7.3-4.22a.24.24 0 01.24 0l7.3 4.22c.07.04.12.12.12.2v8.44c0 .08-.05.16-.12.2l-7.3 4.22a.24.24 0 01-.24 0l-1.87-1.12a.22.22 0 00-.21-.01c-.52.3-.62.34-1.1.5-.13.05-.31.12.06.33l2.44 1.45c.22.12.48.19.74.19.25 0 .51-.07.73-.19l7.3-4.22a1.4 1.4 0 00.7-1.21V7.47a1.4 1.4 0 00-.7-1.21L12.7 2.04a1.4 1.4 0 00-.7-.19zm2 6.98c-2.08 0-3.32.88-3.32 2.35 0 1.6 1.24 2.04 3.24 2.24 2.4.23 2.58.58 2.58 1.05 0 .8-.65 1.15-2.17 1.15-1.91 0-2.33-.48-2.47-1.42a.22.22 0 00-.22-.19h-.94c-.12 0-.22.1-.22.22 0 1.21.66 2.66 3.85 2.66 2.31 0 3.63-.91 3.63-2.5 0-1.58-1.07-2-3.31-2.3-2.28-.3-2.5-.45-2.5-.98 0-.45.2-1.03 1.88-1.03 1.5 0 2.06.32 2.29 1.34.02.1.11.17.21.17h.94c.06 0 .12-.02.16-.07a.22.22 0 00.06-.17c-.15-1.73-1.3-2.52-3.57-2.52z"/></svg>`
-  }
+  { name: 'HTML5', slug: 'html5', color: 'E34F26' },
+  { name: 'CSS3', slug: 'css3', color: '1572B6' },
+  { name: 'JavaScript', slug: 'javascript', color: 'F7DF1E' },
+  { name: 'jQuery', slug: 'jquery', color: '0769AD' },
+  { name: 'Bootstrap', slug: 'bootstrap', color: '7952B3' },
+  { name: 'TailwindCSS', slug: 'tailwindcss', color: '06B6D4' },
+  { name: 'Sass', slug: 'sass', color: 'CC6699' },
+  { name: 'Vue.js', slug: 'vuedotjs', color: '4FC08D' },
+  { name: 'Nuxt.js', slug: 'nuxtdotjs', color: '00DC82' },
+  { name: 'Vite', slug: 'vite', color: '646CFF' },
+  { name: 'TypeScript', slug: 'typescript', color: '3178C6' },
+  { name: 'REST API', mono: 'API', color: '6B21A8' },
+  { name: 'React', slug: 'react', color: '61DAFB' },
+  { name: 'Next.js', slug: 'nextdotjs', color: '111111' },
+  { name: 'Redux', slug: 'redux', color: '764ABC' },
+  { name: 'Pinia', slug: 'pinia', color: 'FFD859' },
+  { name: 'SEO', mono: 'SEO', color: '16A34A' },
+  { name: 'AI', mono: 'AI', color: '9333EA' },
+  { name: 'Git', slug: 'git', color: 'F05032' },
+  { name: 'GitHub', slug: 'github', color: '181717' },
+  { name: 'Netlify', slug: 'netlify', color: '00C7B7' },
+  { name: 'Vercel', slug: 'vercel', color: '111111' },
+  { name: 'Figma', slug: 'figma', color: 'F24E1E' },
+  { name: 'Claude Code', slug: 'claude', color: 'D97757' },
+  { name: 'Claude Code Design', slug: 'claude', color: 'D97757' }
 ]
+
+const failed = ref([])
+function onError(name) {
+  if (!failed.value.includes(name)) failed.value.push(name)
+}
+function monogram(skill) {
+  return (
+    skill.mono ||
+    skill.name.replace(/[^A-Za-z0-9]/g, '').slice(0, 2).toUpperCase()
+  )
+}
 </script>
 
 <template>
@@ -43,16 +63,32 @@ const skills = [
         Foydalanayotgan texnologiyalar va vositalar
       </p>
 
-      <div class="mt-12 grid max-w-2xl grid-cols-2 gap-4 lg:grid-cols-4">
+      <div
+        class="mt-12 grid grid-cols-2 gap-4 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6"
+      >
         <div
-          v-for="skill in skills"
+          v-for="(skill, index) in skills"
           :key="skill.name"
-          class="glass-card flex cursor-pointer items-center gap-4 px-8 py-6 transition-all hover:-translate-y-1 hover:shadow-xl hover:shadow-brand-purple/10"
+          class="glass-card glass-3d shine-sweep group flex cursor-pointer items-center gap-3 px-4 py-4"
           data-aos="fade-up"
-          :data-aos-delay="skill.delay"
+          :data-aos-delay="100 + (index % 6) * 60"
         >
-          <div class="h-10 w-10 shrink-0" v-html="skill.svg"></div>
-          <span class="text-lg font-medium text-ink">{{ skill.name }}</span>
+          <img
+            v-if="skill.slug && !failed.includes(skill.name)"
+            :src="`https://cdn.simpleicons.org/${skill.slug}/${skill.color}`"
+            :alt="skill.name"
+            loading="lazy"
+            class="h-8 w-8 shrink-0 transition-transform duration-500 group-hover:scale-110 group-hover:rotate-6"
+            @error="onError(skill.name)"
+          />
+          <span
+            v-else
+            class="flex h-8 w-8 shrink-0 items-center justify-center rounded-lg text-xs font-bold transition-transform duration-500 group-hover:scale-110"
+            :style="{ color: `#${skill.color}`, backgroundColor: `#${skill.color}1a` }"
+          >
+            {{ monogram(skill) }}
+          </span>
+          <span class="truncate text-base font-medium text-ink">{{ skill.name }}</span>
         </div>
       </div>
     </div>

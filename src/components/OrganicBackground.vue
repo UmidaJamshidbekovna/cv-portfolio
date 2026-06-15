@@ -20,6 +20,13 @@
           <stop offset="100%" stop-color="#F3E5F5" />
         </linearGradient>
 
+        <!-- Dark-mode base: a rich, deep plum gradient (not flat black) -->
+        <linearGradient id="og-base-dark" x1="0%" y1="0%" x2="100%" y2="100%">
+          <stop offset="0%" stop-color="#1A1230" />
+          <stop offset="45%" stop-color="#110B1E" />
+          <stop offset="100%" stop-color="#0B0712" />
+        </linearGradient>
+
         <radialGradient id="og-violet" cx="50%" cy="50%" r="60%">
           <stop offset="0%" stop-color="#C77DFF" stop-opacity="0.35" />
           <stop offset="55%" stop-color="#E9A8F8" stop-opacity="0.18" />
@@ -50,8 +57,11 @@
       </defs>
 
       <rect width="1440" height="900" fill="url(#og-base)" />
+      <!-- Dark-mode base: hidden in light, painted over the light gradient in dark -->
+      <rect width="1440" height="900" fill="url(#og-base-dark)" class="hidden dark:block" />
 
-      <g filter="url(#og-soft)">
+      <!-- Soft violet glows are dimmed in dark so they read as ambient aurora, not muddy blobs -->
+      <g filter="url(#og-soft)" class="dark:opacity-[0.5]">
         <path
           class="origin-center animate-drift-a"
           d="M 1080 -120 C 1340 -80 1520 120 1480 340 C 1440 540 1240 600 1040 520 C 860 448 820 240 920 80 C 980 -20 1040 -120 1080 -120 Z"

@@ -4,30 +4,54 @@
     <meta charset="UTF-8" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!-- No-flash theme bootstrap: applies the saved/system theme BEFORE first paint -->
+    <script>
+      (function () {
+        try {
+          var saved = localStorage.getItem('theme')
+          var dark =
+            saved === 'dark' ||
+            (!saved &&
+              window.matchMedia('(prefers-color-scheme: dark)').matches)
+          if (dark) document.documentElement.classList.add('dark')
+        } catch (e) {}
+      })()
+    </script>
+
     <title>Umida Rakhimova — Frontend Developer (Vue.js / Nuxt.js)</title>
     <meta
       name="description"
       content="Umida Rakhimova — Frontend Developer. Vue.js va Nuxt.js ekotizimida 3+ yillik tajriba: tezkor SPA/SSR ilovalar, performance optimizatsiyasi va toza, modulli arxitektura."
     />
     <meta name="author" content="Umida Rakhimova" />
+    <meta name="keywords" content="Frontend Developer, Vue.js, Nuxt.js, Umida Rakhimova, portfolio, JavaScript, TypeScript, Toshkent" />
+    <link rel="canonical" href="https://your-domain.com/" />
+
+    <!-- Browser UI color (light / dark) -->
+    <meta name="theme-color" content="#FDF8F4" media="(prefers-color-scheme: light)" />
+    <meta name="theme-color" content="#0E0B16" media="(prefers-color-scheme: dark)" />
 
     <!-- Open Graph / ijtimoiy tarmoqlarda ulashish uchun -->
+    <!-- TODO: deploydan keyin "your-domain.com" ni haqiqiy domeningizga almashtiring (og:image/og:url/canonical absolute URL bo'lishi kerak) -->
     <meta property="og:type" content="website" />
     <meta property="og:locale" content="uz_UZ" />
+    <meta property="og:site_name" content="Umida Rakhimova" />
     <meta property="og:title" content="Umida Rakhimova — Frontend Developer (Vue.js / Nuxt.js)" />
     <meta
       property="og:description"
       content="Vue.js / Nuxt.js bo'yicha ixtisoslashgan Frontend Developer. So'nggi loyihalar, ish tajribasi va texnik blog."
     />
-    <!-- TODO: deploy domeningizni qo'ying (masalan https://umida.vercel.app) va og:image rasm manzilini to'ldiring -->
-    <!-- <meta property="og:url" content="https://SIZNING-DOMEN" /> -->
-    <!-- <meta property="og:image" content="https://SIZNING-DOMEN/og-cover.jpg" /> -->
+    <meta property="og:url" content="https://your-domain.com/" />
+    <meta property="og:image" content="https://your-domain.com/image.png" />
+    <meta property="og:image:alt" content="Umida Rakhimova — Frontend Developer" />
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content="Umida Rakhimova — Frontend Developer (Vue.js / Nuxt.js)" />
     <meta
       name="twitter:description"
       content="Vue.js / Nuxt.js bo'yicha ixtisoslashgan Frontend Developer. So'nggi loyihalar, ish tajribasi va texnik blog."
     />
+    <meta name="twitter:image" content="https://your-domain.com/image.png" />
 
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -35,8 +59,67 @@
       href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Inter:wght@300;400;500;600;700&display=swap"
       rel="stylesheet"
     />
+
+    <!-- Preloader: ko'rsatiladi to Vue mount bo'lguncha, keyin main.js uni olib tashlaydi -->
+    <style>
+      #preloader {
+        position: fixed;
+        inset: 0;
+        z-index: 9999;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background: #fdf8f4;
+        transition: opacity 0.5s ease, visibility 0.5s ease;
+      }
+      html.dark #preloader {
+        background: #0e0b16;
+      }
+      #preloader.is-hidden {
+        opacity: 0;
+        visibility: hidden;
+        pointer-events: none;
+      }
+      .preloader-ring {
+        width: 56px;
+        height: 56px;
+        border-radius: 50%;
+        border: 4px solid rgba(142, 36, 170, 0.18);
+        border-top-color: #8e24aa;
+        animation: preloader-spin 0.8s linear infinite;
+      }
+      html.dark .preloader-ring {
+        border-color: rgba(199, 125, 255, 0.22);
+        border-top-color: #c77dff;
+      }
+      .preloader-mark {
+        position: absolute;
+        font-family: 'Plus Jakarta Sans', sans-serif;
+        font-weight: 700;
+        font-size: 16px;
+        color: #8e24aa;
+        letter-spacing: 0.05em;
+      }
+      html.dark .preloader-mark {
+        color: #c77dff;
+      }
+      @keyframes preloader-spin {
+        to {
+          transform: rotate(360deg);
+        }
+      }
+      @media (prefers-reduced-motion: reduce) {
+        .preloader-ring {
+          animation-duration: 2s;
+        }
+      }
+    </style>
   </head>
   <body>
+    <div id="preloader" role="status" aria-label="Yuklanmoqda">
+      <div class="preloader-ring"></div>
+      <span class="preloader-mark">UR</span>
+    </div>
     <div id="app"></div>
     <script type="module" src="/src/main.js"></script>
   </body>

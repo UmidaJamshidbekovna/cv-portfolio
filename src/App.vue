@@ -10,6 +10,7 @@ import EducationSection from './components/EducationSection.vue'
 import TestimonialsSection from './components/TestimonialsSection.vue'
 import BlogSection from './components/BlogSection.vue'
 import ContactSection from './components/ContactSection.vue'
+import ScrollToTop from './components/ScrollToTop.vue'
 </script>
 
 <template>
@@ -28,9 +29,11 @@ import ContactSection from './components/ContactSection.vue'
     <ContactSection />
 
     <footer
-      class="mt-24 border-t border-brand-light bg-white/50 px-6 py-10 text-center text-sm text-gray-500 backdrop-blur-sm"
+      class="mt-24 border-t border-brand-light bg-white/50 px-6 py-10 text-center text-sm text-gray-500 backdrop-blur-sm dark:border-white/10 dark:bg-white/[0.03]"
     >
       © {{ new Date().getFullYear() }} Umida Rakhimova — Built with Vue 3, Vite & TailwindCSS.
     </footer>
+
+    <ScrollToTop />
   </div>
 </template>

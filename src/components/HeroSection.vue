@@ -1,6 +1,6 @@
 <script setup>
 import { ref, computed, onMounted, onBeforeUnmount } from 'vue'
-import { Phone, Github, Linkedin, Send, Code2, Zap } from 'lucide-vue-next'
+import { Phone, Github, Linkedin, Send, Code2, Zap, Download } from 'lucide-vue-next'
 import ProfileCard from './ProfileCard.vue'
 import BadgeFloat from './BadgeFloat.vue'
 
@@ -79,10 +79,10 @@ onBeforeUnmount(() => {
           data-aos="fade-right"
           data-aos-delay="200"
         >
-<span aria-hidden="true"><span class="text-[#782E87]">{{ typedFirst }}</span><span>{{ typedSpace }}</span><span class="text-[#36003B]">{{ typedLast }}</span></span>
+<span aria-hidden="true"><span class="text-[#782E87] dark:text-[#CFA4FF]">{{ typedFirst }}</span><span>{{ typedSpace }}</span><span class="text-[#36003B] dark:text-[#EBD7F7]">{{ typedLast }}</span></span>
           <span class="sr-only">Umida Rakhimova</span>
           <span
-            class="ml-1 inline-block h-[0.85em] w-[3px] translate-y-[0.12em] bg-[#73007E] align-middle animate-caret"
+            class="ml-1 inline-block h-[0.85em] w-[3px] translate-y-[0.12em] bg-[#73007E] align-middle animate-caret dark:bg-[#C77DFF]"
             aria-hidden="true"
           ></span>
         </h1>
@@ -96,7 +96,7 @@ onBeforeUnmount(() => {
         </p>
 
         <span
-          class="mt-4 inline-flex items-center gap-2 rounded-full border border-green-500/30 bg-green-500/10 px-3 py-1 text-xs font-medium text-green-700"
+          class="mt-4 inline-flex items-center gap-2 rounded-full border border-green-500/30 bg-green-500/10 px-3 py-1 text-xs font-medium text-green-700 dark:border-green-400/40 dark:bg-green-400/10 dark:text-green-300"
           data-aos="fade-right"
           data-aos-delay="350"
         >
@@ -128,6 +128,14 @@ onBeforeUnmount(() => {
             <Phone class="h-4 w-4" />
             Bog'lanish
           </a>
+          <a
+            href="/Umida_Rakhimova_Frontend_Developer.pdf"
+            download
+            class="btn-ghost"
+          >
+            <Download class="h-4 w-4" />
+            CV yuklab olish
+          </a>
         </div>
 
         <div
@@ -147,7 +155,7 @@ onBeforeUnmount(() => {
             :aria-label="social.label"
             target="_blank"
             rel="noopener noreferrer"
-            class="flex h-9 w-9 items-center justify-center rounded-full border border-white/60 bg-white/70 text-gray-500 shadow-md shadow-brand-purple/10 backdrop-blur-md transition-all hover:-translate-y-0.5 hover:border-brand-purple hover:text-brand-purple hover:shadow-lg hover:shadow-brand-purple/25"
+            class="flex h-9 w-9 items-center justify-center rounded-full border border-white/60 bg-white/70 text-gray-500 shadow-md shadow-brand-purple/10 backdrop-blur-md transition-all hover:-translate-y-0.5 hover:border-brand-purple hover:text-brand-purple hover:shadow-lg hover:shadow-brand-purple/25 dark:border-white/10 dark:bg-white/[0.05]"
           >
             <component :is="social.icon" class="h-4 w-4" />
           </a>

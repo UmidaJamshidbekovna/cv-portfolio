@@ -8,8 +8,13 @@ import {
   Briefcase,
   GraduationCap,
   Sparkles,
-  Mail
+  Mail,
+  Sun,
+  Moon
 } from 'lucide-vue-next'
+import { useTheme } from '../composables/useTheme'
+
+const { isDark, toggle } = useTheme()
 
 const items = [
   { id: 'home',        label: 'Bosh sahifa',  icon: Home },
@@ -58,9 +63,9 @@ onBeforeUnmount(() => {
 </script>
 
 <template>
-  <nav class="sticky top-4 z-50 w-full px-4">
+  <nav class="sticky top-4 z-50 flex w-full justify-center px-4">
     <ul
-      class="glass-card animate-fade-in-up mx-auto flex h-[60px] w-[900px] max-w-full items-center justify-between gap-1 overflow-x-auto !rounded-full px-3 [-ms-overflow-style:none] [scrollbar-width:none] [&::-webkit-scrollbar]:hidden lg:gap-2 lg:px-4"
+      class="glass-card animate-fade-in-up flex h-[60px] w-fit max-w-full items-center justify-center gap-1 overflow-x-auto !rounded-full px-3 [-ms-overflow-style:none] [scrollbar-width:none] [&::-webkit-scrollbar]:hidden lg:gap-2 lg:px-4"
     >
       <li v-for="item in items" :key="item.id" class="shrink-0">
         <button
@@ -71,7 +76,7 @@ onBeforeUnmount(() => {
             'relative flex items-center gap-2 overflow-hidden rounded-full px-3 py-2 text-sm font-medium transition-all duration-300 ease-out lg:px-4',
             active === item.id
               ? 'text-white animate-pulse-soft'
-              : 'text-gray-600 hover:-translate-y-0.5 hover:text-[#73007E]'
+              : 'text-gray-600 hover:-translate-y-0.5 hover:text-[#73007E] dark:hover:text-[#C77DFF]'
           ]"
           :style="active === item.id ? {
             background: 'linear-gradient(135deg, #4A148C 0%, #36003B 100%)',
@@ -90,4 +95,32 @@ onBeforeUnmount(() => {
       </li>
     </ul>
   </nav>
+
+  <button
+    type="button"
+    @click="toggle"
+    :aria-label="isDark ? 'Yorug‘ rejimga o‘tish' : 'Tungi rejimga o‘tish'"
+    :aria-pressed="isDark"
+    class="glass-card fixed right-4 top-4 z-50 flex h-11 w-11 items-center justify-center !rounded-full text-ink transition-transform duration-300 ease-out hover:-translate-y-0.5 hover:text-brand-purple"
+  >
+    <Transition name="theme-icon" mode="out-in">
+      <Moon v-if="!isDark" key="moon" class="h-5 w-5" />
+      <Sun v-else key="sun" class="h-5 w-5" />
+    </Transition>
+  </button>
 </template>
+
+<style scoped>
+.theme-icon-enter-active,
+.theme-icon-leave-active {
+  transition: opacity 0.2s ease, transform 0.2s ease;
+}
+.theme-icon-enter-from {
+  opacity: 0;
+  transform: rotate(-90deg) scale(0.6);
+}
+.theme-icon-leave-to {
+  opacity: 0;
+  transform: rotate(90deg) scale(0.6);
+}
+</style>

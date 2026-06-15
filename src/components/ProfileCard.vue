@@ -53,11 +53,11 @@ const onLeave = () => {
     >
       <div class="flex flex-col items-center [transform-style:preserve-3d]">
         <div class="relative pop-z-3">
-          <div
-            class="flex h-20 w-20 items-center justify-center rounded-full bg-gradient-to-br from-brand-purple to-brand-dark text-2xl font-bold text-white shadow-lg shadow-brand-purple/40 ring-4 ring-white/60"
-          >
-            U
-          </div>
+          <img
+            src="/image.png"
+            alt="Umida Rakhimova"
+            class="h-20 w-20 rounded-full object-cover shadow-lg shadow-brand-purple/40 ring-4 ring-white/60"
+          />
           <span
             class="absolute bottom-0 right-0 flex h-5 w-5 items-center justify-center rounded-full border-2 border-white bg-green-500 shadow-md shadow-green-500/40"
           >

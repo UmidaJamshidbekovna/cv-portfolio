@@ -20,8 +20,11 @@ const stats = [
           data-aos="fade-right"
           data-aos-delay="100"
         >
-          <span class="bg-glow !h-full !w-full !left-0 !top-0 opacity-70"></span>
-          <span class="relative font-display text-7xl font-bold text-brand-purple/30 lg:text-8xl">UR</span>
+          <img
+            src="/image.png"
+            alt="Umida Rakhimova"
+            class="absolute inset-0 h-full w-full object-cover"
+          />
         </div>
       </div>
 

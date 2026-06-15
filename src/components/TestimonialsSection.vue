@@ -165,7 +165,7 @@ async function remove(item) {
             maxlength="60"
             required
             placeholder="Masalan: Jasur Karimov"
-            class="w-full rounded-xl border border-white/60 bg-white/70 px-4 py-2.5 text-sm text-ink outline-none transition focus:border-brand-purple focus:ring-2 focus:ring-brand-purple/20"
+            class="w-full rounded-xl border border-white/60 bg-white/70 px-4 py-2.5 text-sm text-ink outline-none transition focus:border-brand-purple focus:ring-2 focus:ring-brand-purple/20 dark:border-white/10 dark:bg-white/[0.04]"
           />
         </div>
         <div>
@@ -176,7 +176,7 @@ async function remove(item) {
             type="text"
             maxlength="80"
             placeholder="Masalan: CEO, Mimsoft"
-            class="w-full rounded-xl border border-white/60 bg-white/70 px-4 py-2.5 text-sm text-ink outline-none transition focus:border-brand-purple focus:ring-2 focus:ring-brand-purple/20"
+            class="w-full rounded-xl border border-white/60 bg-white/70 px-4 py-2.5 text-sm text-ink outline-none transition focus:border-brand-purple focus:ring-2 focus:ring-brand-purple/20 dark:border-white/10 dark:bg-white/[0.04]"
           />
         </div>
         <div class="sm:col-span-2">
@@ -188,7 +188,7 @@ async function remove(item) {
             maxlength="500"
             required
             placeholder="Umida bilan ishlash tajribangiz haqida yozing..."
-            class="w-full resize-none rounded-xl border border-white/60 bg-white/70 px-4 py-2.5 text-sm text-ink outline-none transition focus:border-brand-purple focus:ring-2 focus:ring-brand-purple/20"
+            class="w-full resize-none rounded-xl border border-white/60 bg-white/70 px-4 py-2.5 text-sm text-ink outline-none transition focus:border-brand-purple focus:ring-2 focus:ring-brand-purple/20 dark:border-white/10 dark:bg-white/[0.04]"
           ></textarea>
         </div>
 
@@ -199,7 +199,7 @@ async function remove(item) {
           </button>
           <p
             v-if="message"
-            :class="['text-sm', message.type === 'ok' ? 'text-green-600' : 'text-red-500']"
+            :class="['text-sm', message.type === 'ok' ? 'text-green-600 dark:text-green-400' : 'text-red-500 dark:text-red-400']"
           >
             {{ message.text }}
           </p>
@@ -208,7 +208,7 @@ async function remove(item) {
 
       <p
         v-else-if="message && message.type === 'ok'"
-        class="mt-4 text-sm text-green-600"
+        class="mt-4 text-sm text-green-600 dark:text-green-400"
       >
         {{ message.text }}
       </p>
@@ -226,7 +226,7 @@ async function remove(item) {
             type="button"
             @click="remove(t)"
             aria-label="Fikrni o'chirish"
-            class="absolute right-3 top-3 flex h-8 w-8 items-center justify-center rounded-full bg-white/70 text-gray-400 opacity-0 shadow-sm backdrop-blur transition-all hover:bg-red-500 hover:text-white group-hover:opacity-100"
+            class="absolute right-3 top-3 flex h-8 w-8 items-center justify-center rounded-full bg-white/70 text-gray-400 opacity-0 shadow-sm backdrop-blur transition-all hover:bg-red-500 hover:text-white group-hover:opacity-100 dark:bg-white/10"
           >
             <Trash2 class="h-4 w-4" />
           </button>

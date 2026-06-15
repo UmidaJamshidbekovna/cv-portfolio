@@ -3,12 +3,72 @@
 @tailwind utilities;
 
 @layer base {
+  /* ---------- Theme tokens (light) ---------- */
+  :root {
+    --surface: 253 248 244;
+    --surface-blush: 252 237 240;
+    --surface-cream: 247 238 223;
+    --surface-ivory: 251 247 242;
+    --surface-pearl: 251 233 236;
+    --ink: 31 41 55;
+    --ink-soft: 91 79 94;
+    --brand-purple: 142 36 170;
+    --brand-light: 243 229 245;
+    --gray-50: 249 250 251;
+    --gray-100: 243 244 246;
+    --gray-200: 229 231 235;
+    --gray-300: 209 213 219;
+    --gray-400: 156 163 175;
+    --gray-500: 107 114 128;
+    --gray-600: 75 85 99;
+    --gray-700: 55 65 81;
+    --gray-800: 31 41 55;
+    --gray-900: 17 24 39;
+    --gray-950: 3 7 18;
+    color-scheme: light;
+  }
+
+  /* ---------- Theme tokens (dark) — "Midnight Plum" ---------- */
+  html.dark {
+    /* Deep, warm plum-charcoal surfaces (not blue-black) so the whole UI shares
+       one warm violet temperature instead of clashing cool/warm tones. */
+    --surface: 18 15 27;
+    --surface-blush: 27 21 36;
+    --surface-cream: 24 19 33;
+    --surface-ivory: 21 17 30;
+    --surface-pearl: 31 24 42;
+    --ink: 245 241 251;
+    --ink-soft: 190 180 208;
+    /* Accent: a balanced vivid purple — bright enough to pop as text/icons on
+       dark, deep enough to carry white text on bg-brand-purple pills. */
+    --brand-purple: 178 102 240;
+    /* Softened mid-lavender: legible as light text on deep bg-brand-dark thumbs
+       AND as a calm chip background with deep-purple text-brand-dark. */
+    --brand-light: 198 178 226;
+    /* Warm, lavender-tinted neutral scale (NOT slate) so grays harmonize with
+       the plum surfaces. Dark shades -> light (text); light shades -> dark (fills). */
+    --gray-50: 26 22 35;
+    --gray-100: 34 28 46;
+    --gray-200: 48 40 62;
+    --gray-300: 66 56 82;
+    --gray-400: 148 138 166;
+    --gray-500: 172 162 190;
+    --gray-600: 196 187 212;
+    --gray-700: 216 209 230;
+    --gray-800: 233 228 242;
+    --gray-900: 244 240 250;
+    --gray-950: 250 248 253;
+    color-scheme: dark;
+    background-color: #0E0B16;
+  }
+
   html {
     scroll-behavior: smooth;
   }
   body {
     @apply font-body antialiased;
-    color: #1F2937;
+    color: rgb(var(--ink));
+    transition: color 0.3s ease;
   }
   h1, h2, h3, h4, h5, h6 {
     @apply font-display;
@@ -270,6 +330,66 @@
     box-shadow:
       0 1px 0 rgba(255, 255, 255, 1) inset,
       0 18px 30px -14px rgba(115, 0, 126, 0.25);
+  }
+
+  /* ---------- Dark mode surface overrides — "Midnight Plum" glass ---------- */
+  .dark .glass-card {
+    background: linear-gradient(
+      150deg,
+      rgba(52, 43, 72, 0.66) 0%,
+      rgba(38, 31, 56, 0.55) 55%,
+      rgba(29, 23, 44, 0.5) 100%
+    );
+    border: 1px solid rgba(196, 166, 240, 0.14);
+    box-shadow:
+      0 1px 0 rgba(255, 255, 255, 0.06) inset,
+      0 -1px 0 rgba(0, 0, 0, 0.45) inset,
+      0 26px 52px -22px rgba(0, 0, 0, 0.8),
+      0 10px 26px -16px rgba(124, 64, 196, 0.35);
+  }
+  /* Top sheen: a faint violet light source instead of milky white */
+  .dark .glass-card::before {
+    background: linear-gradient(
+      180deg,
+      rgba(196, 166, 240, 0.12) 0%,
+      rgba(196, 166, 240, 0.03) 32%,
+      rgba(196, 166, 240, 0) 62%
+    );
+    opacity: 0.8;
+  }
+  .dark .glass-3d:hover {
+    border-color: rgba(178, 102, 240, 0.4);
+    box-shadow:
+      0 1px 0 rgba(255, 255, 255, 0.08) inset,
+      0 34px 64px -22px rgba(0, 0, 0, 0.85),
+      0 16px 34px -18px rgba(124, 64, 196, 0.5),
+      0 0 0 1px rgba(178, 102, 240, 0.18);
+  }
+  .dark .btn-ghost {
+    color: #EFE7F8;
+    background: linear-gradient(
+      135deg,
+      rgba(64, 50, 88, 0.66) 0%,
+      rgba(44, 34, 62, 0.56) 100%
+    );
+    border: 1px solid rgba(196, 166, 240, 0.18);
+    box-shadow:
+      0 1px 0 rgba(255, 255, 255, 0.06) inset,
+      0 14px 26px -14px rgba(0, 0, 0, 0.7);
+  }
+  .dark .btn-ghost:hover {
+    color: #DCB6FB;
+    border-color: rgba(178, 102, 240, 0.55);
+    box-shadow:
+      0 1px 0 rgba(255, 255, 255, 0.08) inset,
+      0 18px 32px -14px rgba(124, 64, 196, 0.45);
+  }
+  /* Deep-purple accent badge reads better with a slightly lifted border on dark */
+  .dark .glass-dark {
+    border-color: rgba(196, 166, 240, 0.22);
+  }
+  .dark .bg-glow {
+    background: radial-gradient(circle, rgba(178, 102, 240, 0.26), transparent 70%);
   }
 
   @media (prefers-reduced-motion: reduce) {

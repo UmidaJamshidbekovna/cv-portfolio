@@ -12,3 +12,14 @@ AOS.init({
 })
 
 createApp(App).mount('#app')
+
+// Hide the pre-mount loader once the app is ready, then remove it from the DOM.
+const preloader = document.getElementById('preloader')
+if (preloader) {
+  requestAnimationFrame(() => {
+    preloader.classList.add('is-hidden')
+    preloader.addEventListener('transitionend', () => preloader.remove(), {
+      once: true
+    })
+  })
+}

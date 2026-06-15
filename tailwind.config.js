@@ -1,5 +1,6 @@
 /** @type {import('tailwindcss').Config} */
 export default {
+  darkMode: 'class',
   content: [
     './index.html',
     './src/**/*.{vue,js,ts,jsx,tsx}'
@@ -7,16 +8,19 @@ export default {
   theme: {
     extend: {
       colors: {
+        // Theme tokens are driven by CSS variables (see :root / html.dark in
+        // src/style.css) so light/dark swap automatically without per-component
+        // dark: variants. <alpha-value> keeps opacity modifiers (e.g. text-ink/70) working.
         surface: {
-          DEFAULT: '#FDF8F4',
-          blush: '#FCEDF0',
-          cream: '#F7EEDF',
-          ivory: '#FBF7F2',
-          pearl: '#FBE9EC'
+          DEFAULT: 'rgb(var(--surface) / <alpha-value>)',
+          blush: 'rgb(var(--surface-blush) / <alpha-value>)',
+          cream: 'rgb(var(--surface-cream) / <alpha-value>)',
+          ivory: 'rgb(var(--surface-ivory) / <alpha-value>)',
+          pearl: 'rgb(var(--surface-pearl) / <alpha-value>)'
         },
         ink: {
-          DEFAULT: '#1F2937',
-          soft: '#5B4F5E'
+          DEFAULT: 'rgb(var(--ink) / <alpha-value>)',
+          soft: 'rgb(var(--ink-soft) / <alpha-value>)'
         },
         accent: {
           DEFAULT: '#F9A8D4',
@@ -25,9 +29,24 @@ export default {
           champagne: '#E8D5B7'
         },
         brand: {
-          purple: '#8E24AA',
-          light: '#F3E5F5',
+          purple: 'rgb(var(--brand-purple) / <alpha-value>)',
+          light: 'rgb(var(--brand-light) / <alpha-value>)',
           dark: '#4A148C'
+        },
+        // Neutral scale is variable-driven too, so the many text-gray-* utilities
+        // scattered across sections become legible in dark mode automatically.
+        gray: {
+          50: 'rgb(var(--gray-50) / <alpha-value>)',
+          100: 'rgb(var(--gray-100) / <alpha-value>)',
+          200: 'rgb(var(--gray-200) / <alpha-value>)',
+          300: 'rgb(var(--gray-300) / <alpha-value>)',
+          400: 'rgb(var(--gray-400) / <alpha-value>)',
+          500: 'rgb(var(--gray-500) / <alpha-value>)',
+          600: 'rgb(var(--gray-600) / <alpha-value>)',
+          700: 'rgb(var(--gray-700) / <alpha-value>)',
+          800: 'rgb(var(--gray-800) / <alpha-value>)',
+          900: 'rgb(var(--gray-900) / <alpha-value>)',
+          950: 'rgb(var(--gray-950) / <alpha-value>)'
         }
       },
       backgroundImage: {

@@ -151,7 +151,7 @@ const submit = async () => {
                 type="text"
                 required
                 placeholder="Ismingizni kiriting"
-                class="mt-1.5 w-full rounded-xl border border-brand-light bg-white/80 px-4 py-2.5 text-sm text-ink placeholder-gray-400 transition focus:border-brand-purple focus:outline-none focus:ring-2 focus:ring-brand-light"
+                class="mt-1.5 w-full rounded-xl border border-brand-light bg-white/80 px-4 py-2.5 text-sm text-ink placeholder-gray-400 transition focus:border-brand-purple focus:outline-none focus:ring-2 focus:ring-brand-light dark:bg-white/[0.04]"
               />
             </div>
             <div>
@@ -164,7 +164,7 @@ const submit = async () => {
                 type="email"
                 required
                 placeholder="you@example.com"
-                class="mt-1.5 w-full rounded-xl border border-brand-light bg-white/80 px-4 py-2.5 text-sm text-ink placeholder-gray-400 transition focus:border-brand-purple focus:outline-none focus:ring-2 focus:ring-brand-light"
+                class="mt-1.5 w-full rounded-xl border border-brand-light bg-white/80 px-4 py-2.5 text-sm text-ink placeholder-gray-400 transition focus:border-brand-purple focus:outline-none focus:ring-2 focus:ring-brand-light dark:bg-white/[0.04]"
               />
             </div>
           </div>
@@ -179,7 +179,7 @@ const submit = async () => {
               type="text"
               required
               placeholder="Loyiha haqida qisqacha"
-              class="mt-1.5 w-full rounded-xl border border-brand-light bg-white/80 px-4 py-2.5 text-sm text-ink placeholder-gray-400 transition focus:border-brand-purple focus:outline-none focus:ring-2 focus:ring-brand-light"
+              class="mt-1.5 w-full rounded-xl border border-brand-light bg-white/80 px-4 py-2.5 text-sm text-ink placeholder-gray-400 transition focus:border-brand-purple focus:outline-none focus:ring-2 focus:ring-brand-light dark:bg-white/[0.04]"
             />
           </div>
 
@@ -193,7 +193,7 @@ const submit = async () => {
               rows="5"
               required
               placeholder="Loyihangiz yoki g‘oyangiz haqida yozing…"
-              class="mt-1.5 w-full resize-none rounded-xl border border-brand-light bg-white/80 px-4 py-2.5 text-sm text-ink placeholder-gray-400 transition focus:border-brand-purple focus:outline-none focus:ring-2 focus:ring-brand-light"
+              class="mt-1.5 w-full resize-none rounded-xl border border-brand-light bg-white/80 px-4 py-2.5 text-sm text-ink placeholder-gray-400 transition focus:border-brand-purple focus:outline-none focus:ring-2 focus:ring-brand-light dark:bg-white/[0.04]"
             />
           </div>
 

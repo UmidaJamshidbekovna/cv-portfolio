@@ -92,8 +92,20 @@ onBeforeUnmount(() => {
           data-aos="fade-right"
           data-aos-delay="300"
         >
-          Full Stack Developer
+          Frontend Developer (Vue.js / React)
         </p>
+
+        <span
+          class="mt-4 inline-flex items-center gap-2 rounded-full border border-green-500/30 bg-green-500/10 px-3 py-1 text-xs font-medium text-green-700"
+          data-aos="fade-right"
+          data-aos-delay="350"
+        >
+          <span class="relative flex h-2 w-2">
+            <span class="absolute inline-flex h-full w-full animate-ping rounded-full bg-green-500 opacity-75"></span>
+            <span class="relative inline-flex h-2 w-2 rounded-full bg-green-500"></span>
+          </span>
+          Ish takliflariga ochiq · Remote / Full-time
+        </span>
 
         <p
           class="mt-4 max-w-sm text-sm leading-relaxed text-gray-500"

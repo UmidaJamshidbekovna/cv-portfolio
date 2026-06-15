@@ -41,21 +41,21 @@ const stats = [
         >
           <p>
             Vue.js ekosistemasi bo'yicha ixtisoslashgan, 3+ yillik tajribaga ega
-            Full Stack dasturchiman. Yuqori unumdorlikdagi veb-ilovalar yaratish,
-            performance optimizatsiyasi (LCP &lt; 1.5s) va modulli arxitektura
-            bo'yicha kuchli tajribaga egaman. Hozirda Mimsoft'da Frontend Lead
-            sifatida ishlayman.
+            Frontend dasturchiman. Yuqori unumdorlikdagi SPA va SSR ilovalar
+            yaratish, performance optimizatsiyasi (LCP &lt; 1.5s) va modulli,
+            qayta ishlatiladigan arxitektura bo'yicha kuchli tajribaga egaman.
+            Hozirda Sovchi.app'da Frontend Developer sifatida ishlayman.
           </p>
           <p>
-            Har bir loyihada toza, qayta ishlatiladigan kod va sifatli
+            Har bir loyihada toza, qayta ishlatiladigan kod va pixel-perfect
             foydalanuvchi tajribasiga e'tibor qarataman. Yangi texnologiyalarni
             o'rganishni, ochiq kodli loyihalarga hissa qo'shishni va texnik
             maqolalar yozishni yaxshi ko'raman.
           </p>
           <p class="text-xs italic text-gray-400">
-            Frontend Lead specializing in the Vue.js ecosystem — high-performance
-            SPAs, performance tuning (LCP &lt; 1.5s), and scalable, modular
-            architecture.
+            Frontend Developer focused on the Vue.js &amp; Nuxt.js ecosystem —
+            building production-grade SPAs, performance tuning (LCP &lt; 1.5s),
+            and clean, scalable architecture.
           </p>
         </div>
 

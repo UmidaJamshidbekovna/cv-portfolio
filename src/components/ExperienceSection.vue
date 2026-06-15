@@ -47,9 +47,9 @@ const experiences = [
     stack: 'JavaScript · Vue.js · React',
     icon: Code2,
     tasks: [
-      'Learned fundamental design patterns used in production codebases.',
-      'Collaborated with senior developers on feature delivery and reviews.',
-      'Gained hands-on experience with modern frontend frameworks.'
+      'Built and maintained reusable UI components for production web apps with Vue.js and React.',
+      'Integrated REST APIs and implemented responsive, cross-browser layouts for existing features.',
+      'Collaborated with senior developers through code reviews, improving code quality and consistency.'
     ]
   }
 ]

@@ -6,6 +6,7 @@ import {
   BookOpen,
   User,
   Briefcase,
+  GraduationCap,
   Sparkles,
   Mail
 } from 'lucide-vue-next'
@@ -16,6 +17,7 @@ const items = [
   { id: 'blog',        label: 'Blog',         icon: BookOpen },
   { id: 'about',       label: 'Haqimda',      icon: User },
   { id: 'experience',  label: 'Tajriba',      icon: Briefcase },
+  { id: 'education',   label: "Ta'lim",       icon: GraduationCap },
   { id: 'skills',      label: "Ko'nikmalar",  icon: Sparkles },
   { id: 'contact',     label: "Bog'lanish",   icon: Mail }
 ]

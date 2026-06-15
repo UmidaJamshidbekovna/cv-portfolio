@@ -10,6 +10,8 @@ defineProps({
   icon: { type: [Object, Function], default: null },
   image: { type: String, default: '' },
   logo: { type: String, default: '' },
+  description: { type: String, default: '' },
+  stack: { type: Array, default: () => [] },
   liveUrl: { type: String, default: '' },
   repoUrl: { type: String, default: '' },
   private: { type: Boolean, default: false }
@@ -53,6 +55,23 @@ defineProps({
           class="h-5 w-5 shrink-0 text-gray-400 transition-all duration-300 group-hover:-translate-y-0.5 group-hover:translate-x-0.5 group-hover:text-brand-purple"
         />
       </div>
+
+      <p
+        v-if="description"
+        class="mt-2 text-sm leading-relaxed text-gray-600"
+      >
+        {{ description }}
+      </p>
+
+      <ul v-if="stack.length" class="mt-3 flex flex-wrap gap-1.5">
+        <li
+          v-for="tech in stack"
+          :key="tech"
+          class="rounded-full bg-brand-light/70 px-2.5 py-1 text-[11px] font-medium text-brand-dark"
+        >
+          {{ tech }}
+        </li>
+      </ul>
       <div
         v-if="private && !liveUrl && !repoUrl"
         class="mt-auto flex border-t border-white/50 pt-4"

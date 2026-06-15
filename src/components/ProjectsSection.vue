@@ -146,12 +146,17 @@ const houzLogo = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 500" 
   </g>
 </svg>`
 
+// ⚠️ `description` va `stack` qiymatlari taxminiy — har bir loyihaning
+// haqiqiy texnologiyalari va tavsifiga moslab tekshirib chiqing.
 const projects = [
   {
     title: 'Sovchi.app — Landing',
     thumbClass: 'bg-brand-light text-brand-purple',
     icon: Heart,
     image: '/sovchiapp.jpg',
+    description:
+      'Tanishtiruv platformasining SEO-friendly landing sahifasi — tezkor SSR va silliq animatsiyalar bilan.',
+    stack: ['Nuxt 3', 'Vue 3', 'TypeScript', 'SSR', 'TailwindCSS'],
     liveUrl: 'https://sovchi.app/',
     repoUrl: ''
   },
@@ -160,6 +165,9 @@ const projects = [
     thumbClass: 'bg-accent text-brand-dark',
     icon: Smartphone,
     image: '/sovchiapp.jpg',
+    description:
+      'Telegram ichida ishlovchi mini-ilova — profil yaratish va moslik topish oqimi.',
+    stack: ['Vue 3', 'TypeScript', 'Telegram WebApp API', 'Pinia'],
     liveUrl: 'https://t.me/sovchiapp_bot',
     repoUrl: ''
   },
@@ -168,6 +176,9 @@ const projects = [
     thumbClass: 'bg-brand-dark text-brand-light',
     icon: LayoutDashboard,
     image: '/sovchiapp.jpg',
+    description:
+      'Foydalanuvchilar va profillarni boshqarish uchun ichki admin paneli — rol asosidagi kirish.',
+    stack: ['Vue 3', 'Pinia', 'REST API', 'TailwindCSS'],
     liveUrl: '',
     repoUrl: '',
     private: true
@@ -177,6 +188,9 @@ const projects = [
     thumbClass: 'bg-white',
     icon: MessageSquare,
     logo: textupLogo,
+    description:
+      'Ommaviy SMS yuborish va kampaniyalarni boshqarish uchun veb-platforma.',
+    stack: ['Vue 3', 'TailwindCSS', 'REST API'],
     liveUrl: 'https://textup.uz/',
     repoUrl: ''
   },
@@ -184,6 +198,9 @@ const projects = [
     title: 'Farobiy International School',
     thumbClass: 'bg-brand-dark text-brand-light',
     icon: GraduationCap,
+    description:
+      'Xalqaro maktab uchun korporativ sayt — kurslar, qabul va yangiliklar bo‘limlari bilan.',
+    stack: ['Nuxt 3', 'Vue 3', 'TailwindCSS'],
     liveUrl: 'https://farobiy-red.vercel.app/',
     repoUrl: ''
   },
@@ -192,6 +209,9 @@ const projects = [
     thumbClass: 'bg-white',
     icon: Home,
     logo: houzLogo,
+    description:
+      'Arxitektura va dizayn studiyasi uchun portfolio sayti — galereya va loyihalar ko‘rgazmasi.',
+    stack: ['Vue 3', 'TailwindCSS'],
     liveUrl: 'https://ho.uz/',
     repoUrl: ''
   },
@@ -199,6 +219,9 @@ const projects = [
     title: 'Folio-agency',
     thumbClass: 'bg-ink text-brand-light',
     icon: Megaphone,
+    description:
+      'Marketing agentligi uchun zamonaviy landing — animatsiyalar va xizmatlar bo‘limi bilan.',
+    stack: ['Vue 3', 'TailwindCSS'],
     liveUrl: 'https://serene-lamington-7ff9dc.netlify.app/',
     repoUrl: ''
   },
@@ -206,6 +229,9 @@ const projects = [
     title: 'laCafe & 6sekund — Admin Panel',
     thumbClass: 'bg-brand-purple text-white',
     icon: LayoutDashboard,
+    description:
+      'Restoran va xizmat biznesi uchun buyurtma va kontentni boshqaruvchi admin paneli.',
+    stack: ['Vue 3', 'Pinia', 'REST API'],
     liveUrl: '',
     repoUrl: '',
     private: true

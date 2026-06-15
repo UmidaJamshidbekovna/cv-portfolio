@@ -8,6 +8,24 @@ const MONTHS_UZ = [
   'Iyul', 'Avgust', 'Sentabr', 'Oktabr', 'Noyabr', 'Dekabr'
 ]
 
+// Faqat texnik/kasbiy postlar CV blogida ko'rinsin.
+// Quyidagi kalit so'zlardan biri post matnida bo'lsa — texnik post hisoblanadi.
+const TECH_KEYWORDS = [
+  'vue', 'nuxt', 'react', 'next', 'javascript', 'typescript', 'ts', 'js',
+  'css', 'html', 'tailwind', 'sass', 'scss', 'frontend', 'front-end',
+  'backend', 'api', 'rest', 'pinia', 'vuex', 'redux', 'state', 'ssr',
+  'performance', 'lcp', 'optimization', 'optimizatsiya', 'komponent',
+  'component', 'code', 'kod', 'dasturlash', 'developer', 'dasturchi',
+  'web', 'veb', 'git', 'github', 'deploy', 'vite', 'spa', 'seo',
+  'algoritm', 'pattern', 'arxitektura', 'architecture', 'database',
+  'ma\'lumotlar bazasi', 'framework', 'library', 'kutubxona', 'debug'
+]
+
+function isTechnical(text) {
+  const t = text.toLowerCase()
+  return TECH_KEYWORDS.some((kw) => t.includes(kw))
+}
+
 function clean(str) {
   return str
     .replace(/<br\s*\/?>/gi, '\n')
@@ -40,6 +58,7 @@ export default async function handler(req, res) {
       )
       const rawText = textMatch ? clean(textMatch[1]) : ''
       if (!rawText) continue // matnsiz (faqat rasm) postlarni o'tkazib yuboramiz
+      if (!isTechnical(rawText)) continue // shaxsiy postlarni CV blogida ko'rsatmaymiz
 
       const postMatch = block.match(/data-post="([^"]+)"/)
       const link = postMatch

@@ -6,6 +6,7 @@ import AboutSection from './components/AboutSection.vue'
 import SkillsSection from './components/SkillsSection.vue'
 import ProjectsSection from './components/ProjectsSection.vue'
 import ExperienceSection from './components/ExperienceSection.vue'
+import EducationSection from './components/EducationSection.vue'
 import TestimonialsSection from './components/TestimonialsSection.vue'
 import BlogSection from './components/BlogSection.vue'
 import ContactSection from './components/ContactSection.vue'
@@ -21,6 +22,7 @@ import ContactSection from './components/ContactSection.vue'
     <SkillsSection />
     <ProjectsSection />
     <ExperienceSection />
+    <EducationSection />
     <TestimonialsSection />
     <BlogSection />
     <ContactSection />

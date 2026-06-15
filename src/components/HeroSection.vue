@@ -79,7 +79,7 @@ onBeforeUnmount(() => {
           data-aos="fade-right"
           data-aos-delay="200"
         >
-          <span class="text-[#782E87]">{{ typedFirst }}</span><span>{{ typedSpace }}</span><span class="text-[#36003B]">{{ typedLast }}</span>
+<span aria-hidden="true"><span class="text-[#782E87]">{{ typedFirst }}</span><span>{{ typedSpace }}</span><span class="text-[#36003B]">{{ typedLast }}</span></span>
           <span class="sr-only">Umida Rakhimova</span>
           <span
             class="ml-1 inline-block h-[0.85em] w-[3px] translate-y-[0.12em] bg-[#73007E] align-middle animate-caret"
@@ -92,7 +92,7 @@ onBeforeUnmount(() => {
           data-aos="fade-right"
           data-aos-delay="300"
         >
-          Frontend Developer (Vue.js / React)
+          Frontend Developer (Vue.js / Nuxt.js)
         </p>
 
         <span

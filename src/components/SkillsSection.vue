@@ -10,12 +10,12 @@ const groups = [
     dot: 'bg-green-500',
     skills: [
       { name: 'Vue.js', slug: 'vuedotjs', color: '4FC08D' },
-      { name: 'Nuxt.js', slug: 'nuxtdotjs', color: '00DC82' },
+      { name: 'Nuxt.js', slug: 'nuxt', color: '00DC82' },
       { name: 'JavaScript', slug: 'javascript', color: 'F7DF1E' },
       { name: 'TypeScript', slug: 'typescript', color: '3178C6' },
       { name: 'TailwindCSS', slug: 'tailwindcss', color: '06B6D4' },
       { name: 'HTML5', slug: 'html5', color: 'E34F26' },
-      { name: 'CSS3', slug: 'css3', color: '1572B6' }
+      { name: 'CSS3', slug: 'css', color: '1572B6' }
     ]
   },
   {

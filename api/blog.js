@@ -21,9 +21,30 @@ const TECH_KEYWORDS = [
   'ma\'lumotlar bazasi', 'framework', 'library', 'kutubxona', 'debug'
 ]
 
+function escapeRegExp(s) {
+  return s.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')
+}
+
+// Kalit so'zni butun so'z sifatida tekshiramiz — "js" so'zi "lots" ichidan,
+// "github" esa URL ichidan tasodifan topilib qolmasligi uchun.
 function isTechnical(text) {
   const t = text.toLowerCase()
-  return TECH_KEYWORDS.some((kw) => t.includes(kw))
+  return TECH_KEYWORDS.some((kw) => {
+    const re = new RegExp(`(^|[^a-z0-9])${escapeRegExp(kw)}([^a-z0-9]|$)`, 'i')
+    return re.test(t)
+  })
+}
+
+// URL, t.me havolalari va @username larni matndan olib tashlaymiz.
+// Shunda "shunchaki link tashlangan" postlar texnik deb hisoblanmaydi va
+// sarlavhada xom URL ko'rinmaydi.
+function stripLinks(s) {
+  return s
+    .replace(/https?:\/\/\S+/gi, ' ')
+    .replace(/(?:www\.|t\.me\/)\S+/gi, ' ')
+    .replace(/@[\w_]+/g, ' ')
+    .replace(/[ \t]+/g, ' ')
+    .trim()
 }
 
 function clean(str) {
@@ -58,7 +79,20 @@ export default async function handler(req, res) {
       )
       const rawText = textMatch ? clean(textMatch[1]) : ''
       if (!rawText) continue // matnsiz (faqat rasm) postlarni o'tkazib yuboramiz
-      if (!isTechnical(rawText)) continue // shaxsiy postlarni CV blogida ko'rsatmaymiz
+
+      // Har bir qatordan URL/@handle larni olib tashlab, faqat mazmunli matnni qoldiramiz.
+      const lines = rawText
+        .split('\n')
+        .map((l) => stripLinks(l))
+        .map((l) => l.trim())
+        .filter(Boolean)
+      const meaningful = lines.join(' ')
+
+      // Faqat link yoki "Assalomu alaykum, link qoldiryapman" kabi mazmunsiz
+      // postlarni o'tkazib yuboramiz (yetarli matn bo'lmasa — chiqarmaymiz).
+      const letters = meaningful.replace(/[^a-zA-Z0-9]/g, '')
+      if (letters.length < 25) continue
+      if (!isTechnical(meaningful)) continue // shaxsiy postlarni CV blogida ko'rsatmaymiz
 
       const postMatch = block.match(/data-post="([^"]+)"/)
       const link = postMatch
@@ -77,11 +111,10 @@ export default async function handler(req, res) {
       )
       const image = imgMatch ? imgMatch[1] : null
 
-      const lines = rawText.split('\n').map((l) => l.trim()).filter(Boolean)
       const title = (lines[0] || 'Post').slice(0, 80)
       const excerpt = (lines.slice(1).join(' ') || lines[0] || '').slice(0, 160)
 
-      const words = rawText.split(/\s+/).length
+      const words = meaningful.split(/\s+/).filter(Boolean).length
       const readTime = `${Math.max(1, Math.round(words / 200))} daqiqa`
 
       posts.push({ title, excerpt, date, readTime, link, image })

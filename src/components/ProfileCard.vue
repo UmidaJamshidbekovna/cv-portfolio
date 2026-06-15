@@ -77,7 +77,7 @@ const onLeave = () => {
         </div>
 
         <h3 class="mt-4 text-center font-semibold text-ink pop-z-2">Umida Rakhimova</h3>
-        <p class="text-center text-sm text-brand-purple pop-z-2">Full Stack Developer</p>
+        <p class="text-center text-sm text-brand-purple pop-z-2">Frontend Developer</p>
 
         <div class="mt-4 flex flex-wrap justify-center gap-2 pop-z-1">
           <span
@@ -92,10 +92,10 @@ const onLeave = () => {
           </span>
         </div>
 
-        <div class="mt-6 grid w-full grid-cols-3 gap-4 text-center pop-z-1">
-          <div v-for="stat in stats" :key="stat.label">
+        <div class="mt-6 grid w-full grid-cols-3 gap-2 text-center pop-z-1">
+          <div v-for="stat in stats" :key="stat.label" class="min-w-0">
             <p class="text-xl font-bold text-ink">{{ stat.value }}</p>
-            <p class="text-xs text-gray-400">{{ stat.label }}</p>
+            <p class="text-[11px] leading-tight text-gray-400">{{ stat.label }}</p>
           </div>
         </div>
       </div>

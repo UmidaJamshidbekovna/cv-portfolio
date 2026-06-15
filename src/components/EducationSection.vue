@@ -1,22 +1,32 @@
 <script setup>
-import { GraduationCap, Award } from 'lucide-vue-next'
+import { GraduationCap, Award, ExternalLink } from 'lucide-vue-next'
 
-// ⚠️ Quyidagi ma'lumotlar qisman taxminiy — yo'nalish (degree), yillar va
-// sertifikatlarni o'zingizning haqiqiy ma'lumotlaringizga moslab tahrirlang.
 const education = [
   {
     school: 'Inha University in Tashkent',
     degree: 'Computer Science / Software Engineering',
-    period: '20XX — 20XX',
+    period: '2019 — 2025',
     icon: GraduationCap,
     note: 'Dasturlash asoslari, algoritmlar va zamonaviy veb-texnologiyalar.'
   }
 ]
 
 const certificates = [
-  // Misol uchun — Udemy / Coursera sertifikatlaringizni shu yerga qo'shing:
-  // { name: 'Vue.js — The Complete Guide', issuer: 'Udemy', year: '2024' },
-  // { name: 'TypeScript', issuer: 'Coursera', year: '2024' }
+  {
+    name: 'Cybersecurity',
+    issuer: 'IT Study',
+    url: 'https://itstudy.uz/certificate?id=f73d88de-f58a-4192-2388-08de943b044d'
+  },
+  {
+    name: 'Introduction to Generative AI',
+    issuer: 'Coursera',
+    url: 'https://www.coursera.org/account/accomplishments/verify/AIZIM34VQCMG'
+  },
+  {
+    name: 'JavaScript Algorithms and Data Structures',
+    issuer: 'freeCodeCamp',
+    url: 'https://www.freecodecamp.org/certification/umidarakhimova09/javascript-v9'
+  }
 ]
 </script>
 
@@ -81,10 +91,20 @@ const certificates = [
               class="flex items-baseline justify-between gap-3 text-sm"
             >
               <span class="text-gray-700">
-                {{ cert.name }}
+                <a
+                  v-if="cert.url"
+                  :href="cert.url"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="inline-flex items-center gap-1 font-medium text-ink transition-colors hover:text-brand-purple"
+                >
+                  {{ cert.name }}
+                  <ExternalLink class="h-3.5 w-3.5 shrink-0 text-gray-400" />
+                </a>
+                <span v-else class="font-medium text-ink">{{ cert.name }}</span>
                 <span class="text-gray-400">· {{ cert.issuer }}</span>
               </span>
-              <span class="shrink-0 text-xs text-gray-400">{{ cert.year }}</span>
+              <span v-if="cert.year" class="shrink-0 text-xs text-gray-400">{{ cert.year }}</span>
             </li>
           </ul>
         </div>

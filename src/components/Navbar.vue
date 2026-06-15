@@ -60,13 +60,15 @@ onBeforeUnmount(() => {
 <template>
   <nav class="sticky top-4 z-50 w-full px-4">
     <ul
-      class="glass-card animate-fade-in-up mx-auto flex h-[60px] w-[900px] max-w-full items-center justify-between gap-2 !rounded-full px-4"
+      class="glass-card animate-fade-in-up mx-auto flex h-[60px] w-[900px] max-w-full items-center justify-between gap-1 overflow-x-auto !rounded-full px-3 [-ms-overflow-style:none] [scrollbar-width:none] [&::-webkit-scrollbar]:hidden lg:gap-2 lg:px-4"
     >
       <li v-for="item in items" :key="item.id" class="shrink-0">
         <button
           @click="goTo(item)"
+          :aria-label="item.label"
+          :aria-current="active === item.id ? 'true' : undefined"
           :class="[
-            'relative flex items-center gap-2 overflow-hidden rounded-full px-4 py-2 text-sm font-medium transition-all duration-300 ease-out',
+            'relative flex items-center gap-2 overflow-hidden rounded-full px-3 py-2 text-sm font-medium transition-all duration-300 ease-out lg:px-4',
             active === item.id
               ? 'text-white animate-pulse-soft'
               : 'text-gray-600 hover:-translate-y-0.5 hover:text-[#73007E]'
@@ -81,7 +83,7 @@ onBeforeUnmount(() => {
             class="h-4 w-4 shrink-0 transition-transform duration-300 ease-out"
             :class="active === item.id ? 'scale-110 drop-shadow-[0_2px_4px_rgba(255,255,255,0.5)]' : ''"
           />
-          <span class="hidden whitespace-nowrap md:inline">
+          <span class="hidden whitespace-nowrap lg:inline">
             {{ item.label }}
           </span>
         </button>

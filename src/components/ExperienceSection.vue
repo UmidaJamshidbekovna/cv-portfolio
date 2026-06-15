@@ -1,55 +1,67 @@
 <script setup>
-import { Heart, Rocket, GraduationCap, Code2 } from 'lucide-vue-next'
+import { Heart, Rocket, Briefcase, GraduationCap, Code2 } from 'lucide-vue-next'
 import TimelineItem from './TimelineItem.vue'
 
 const experiences = [
   {
     company: 'Sovchi.app',
-    period: 'Feb 2026 — Present',
+    period: 'Fev 2026 — Hozirgacha',
     role: 'Frontend Developer',
     stack: 'Nuxt.js · Vue.js · TypeScript',
     icon: Heart,
     tasks: [
-      'Building a matchmaking platform with Nuxt 3 and SSR for fast, SEO-friendly pages.',
-      'Developing reusable Vue 3 components and managing state with Pinia.',
-      'Integrating REST APIs for profile matching and secure messaging.'
+      'Nuxt 3 va SSR yordamida tezkor, SEO-friendly sahifalar bilan tanishtiruv platformasini ishlab chiqyapman.',
+      'Qayta ishlatiladigan Vue 3 komponentlarini yarataman va holatni Pinia bilan boshqaraman.',
+      'Profil mosligi va xavfsiz xabar almashish uchun REST API integratsiyasini amalga oshiraman.'
     ]
   },
   {
     company: 'Mimsoft Company',
-    period: 'May 2025 — December 2025',
+    period: 'May 2025 — Dek 2025',
     role: 'Frontend Lead',
     stack: 'React.js · Next.js · Vue.js · Nuxt.js',
     icon: Rocket,
     tasks: [
-      'Engineered high-performance SPAs using Vue 3 and the Composition API.',
-      'Implemented lazy loading and code-splitting, keeping LCP under 1.5s.',
-      'Designed a modular frontend architecture for microservices.',
-      'Optimized state management with Pinia for scalable data flows.'
+      'Vue 3 va Composition API yordamida yuqori unumdorlikdagi SPA-lar yaratdim.',
+      'Lazy loading va code-splitting joriy etib, LCP ni 1.5s dan past ushlab turdim.',
+      'Mikroservislar uchun modulli frontend arxitekturasini loyihaladim.',
+      'Kengaytiriladigan ma\'lumot oqimi uchun Pinia bilan holat boshqaruvini optimallashtirdim.'
+    ]
+  },
+  {
+    company: 'Upwork (Freelancer)',
+    period: 'Sen 2024 — Apr 2025',
+    role: 'Frontend Developer',
+    stack: 'Vue.js · React · JavaScript',
+    icon: Briefcase,
+    tasks: [
+      'Xalqaro mijozlar uchun freelancer sifatida responsive veb-ilovalar va landing sahifalar ishlab chiqdim.',
+      'Vue.js va React yordamida mijoz talablariga mos qayta ishlatiladigan UI komponentlarini yaratdim.',
+      'Loyihalarni o\'z vaqtida yetkazib berib, yuqori mijoz mamnuniyati va ijobiy baholarni saqlab qoldim.'
     ]
   },
   {
     company: 'MARS IT SCHOOL',
-    period: 'March 2024 — Sep 2024',
-    role: 'Frontend Mentor for Young Learners (Ages 8–16)',
+    period: 'Mar 2024 — Sen 2024',
+    role: 'Frontend Mentor (8–16 yosh)',
     stack: 'HTML · CSS · JavaScript',
     icon: GraduationCap,
     tasks: [
-      'Guided 20+ students in creating interactive games with HTML/CSS/JS.',
-      'Fostered problem-solving and algorithmic thinking in young learners.',
-      'Maintained an 85% project completion rate across the program.'
+      '20+ o\'quvchiga HTML/CSS/JS yordamida interaktiv o\'yinlar yaratishda yo\'l-yo\'riq ko\'rsatdim.',
+      'Yosh o\'quvchilarda muammolarni hal qilish va algoritmik fikrlash ko\'nikmasini rivojlantirdim.',
+      'Dastur davomida 85% loyiha yakunlash ko\'rsatkichini saqlab qoldim.'
     ]
   },
   {
     company: 'Uzcard',
-    period: 'February 2023 — March 2024',
-    role: 'Frontend Developer Intern',
+    period: 'Fev 2023 — Mar 2024',
+    role: 'Frontend Developer (Intern)',
     stack: 'JavaScript · Vue.js · React',
     icon: Code2,
     tasks: [
-      'Built and maintained reusable UI components for production web apps with Vue.js and React.',
-      'Integrated REST APIs and implemented responsive, cross-browser layouts for existing features.',
-      'Collaborated with senior developers through code reviews, improving code quality and consistency.'
+      'Vue.js va React bilan production veb-ilovalar uchun qayta ishlatiladigan UI komponentlarini yaratdim va qo\'llab-quvvatladim.',
+      'REST API integratsiyasi hamda mavjud funksiyalar uchun responsive, cross-browser layoutlar tayyorladim.',
+      'Senior dasturchilar bilan code review orqali hamkorlik qilib, kod sifati va izchilligini oshirdim.'
     ]
   }
 ]

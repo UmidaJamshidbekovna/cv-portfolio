@@ -4,7 +4,6 @@ import {
   Heart,
   GraduationCap,
   Home,
-  Megaphone,
   Smartphone,
   LayoutDashboard
 } from 'lucide-vue-next'
@@ -212,17 +211,7 @@ const projects = [
     description:
       'Arxitektura va dizayn studiyasi uchun portfolio sayti — galereya va loyihalar ko‘rgazmasi.',
     stack: ['Vue 3', 'TailwindCSS'],
-    liveUrl: 'https://ho.uz/',
-    repoUrl: ''
-  },
-  {
-    title: 'Folio-agency',
-    thumbClass: 'bg-ink text-brand-light',
-    icon: Megaphone,
-    description:
-      'Marketing agentligi uchun zamonaviy landing — animatsiyalar va xizmatlar bo‘limi bilan.',
-    stack: ['Vue 3', 'TailwindCSS'],
-    liveUrl: 'https://serene-lamington-7ff9dc.netlify.app/',
+    liveUrl: 'https://hou.uz/',
     repoUrl: ''
   },
   {

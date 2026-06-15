@@ -100,32 +100,11 @@
 ## 📊 GitHub Statistikasi
 
 <p align="center">
-  <img height="180em" src="https://github-readme-stats.vercel.app/api?username=UmidaJamshidbekovna&show_icons=true&include_all_commits=true&count_private=true&hide_border=true&bg_color=0D1117&title_color=EEE0A3&icon_color=EEE0A3&text_color=F5EAC9" alt="GitHub Stats" />
-  <img height="180em" src="https://github-readme-stats.vercel.app/api/top-langs/?username=UmidaJamshidbekovna&layout=compact&hide_border=true&langs_count=8&bg_color=0D1117&title_color=EEE0A3&text_color=F5EAC9" alt="Top Languages" />
-</p>
-
-<p align="center">
   <img src="https://github-readme-streak-stats.herokuapp.com/?user=UmidaJamshidbekovna&hide_border=true&background=0D1117&border=0D1117&stroke=EEE0A3&ring=EEE0A3&fire=EEE0A3&currStreakNum=F5EAC9&sideNums=F5EAC9&currStreakLabel=EEE0A3&sideLabels=EEE0A3&dates=A8A29E" alt="GitHub Streak" />
 </p>
 
 <p align="center">
   <img src="https://github-readme-activity-graph.vercel.app/graph?username=UmidaJamshidbekovna&theme=react-dark&bg_color=0D1117&color=EEE0A3&line=EEE0A3&point=ffffff&hide_border=true" alt="Activity Graph" />
-</p>
-
----
-
-## 🏆 Yutuqlar (Achievements)
-
-<p align="center">
-  <img src="https://github-profile-trophy.vercel.app/?username=UmidaJamshidbekovna&theme=radical&no-frame=true&no-bg=true&column=7&margin-w=6&margin-h=6" alt="Achievements / Trophies" />
-</p>
-
----
-
-## 🐍 Contribution Snake
-
-<p align="center">
-  <img src="https://raw.githubusercontent.com/UmidaJamshidbekovna/UmidaJamshidbekovna/output/snake.svg" alt="Snake animation" />
 </p>
 
 ---

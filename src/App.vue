@@ -11,6 +11,7 @@ import TestimonialsSection from './components/TestimonialsSection.vue'
 import BlogSection from './components/BlogSection.vue'
 import ContactSection from './components/ContactSection.vue'
 import ScrollToTop from './components/ScrollToTop.vue'
+import ChatWidget from './components/ChatWidget.vue'
 </script>
 
 <template>
@@ -35,5 +36,6 @@ import ScrollToTop from './components/ScrollToTop.vue'
     </footer>
 
     <ScrollToTop />
+    <ChatWidget />
   </div>
 </template>

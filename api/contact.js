@@ -41,22 +41,35 @@ export default async function handler(req, res) {
     const email = clean(body.email, 120)
     const subject = clean(body.subject, 120)
     const message = clean(body.message, 2000)
+    // Chat widget'dan keladigan qo'shimcha maydonlar
+    const source = clean(body.source, 40)
+    const contact = clean(body.contact, 160)
 
-    if (name.length < 2 || message.length < 5) {
-      res.status(400).json({ error: 'Ism va xabar matni to\'liqroq bo\'lishi kerak.' })
+    // Bog'lanish uchun kamida bittasi bo'lsin: to'g'ri email yoki erkin "contact".
+    const emailOk = /^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(email)
+    if (message.length < 5) {
+      res.status(400).json({ error: 'Xabar matni to\'liqroq bo\'lishi kerak.' })
       return
     }
-    if (!/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(email)) {
+    if (!emailOk && !contact) {
+      res.status(400).json({ error: 'Bog\'lanish ma\'lumoti (email yoki kontakt) kerak.' })
+      return
+    }
+    if (email && !emailOk) {
       res.status(400).json({ error: 'Email manzili noto\'g\'ri.' })
       return
     }
 
-    const text =
-      `📩 <b>Yangi xabar — portfolio sayti</b>\n\n` +
-      `👤 <b>Ism:</b> ${esc(name)}\n` +
-      `✉️ <b>Email:</b> ${esc(email)}\n` +
-      `📌 <b>Mavzu:</b> ${esc(subject) || '—'}\n\n` +
-      `💬 ${esc(message)}`
+    const lines = ['📩 <b>Yangi xabar — portfolio sayti</b>']
+    if (source) lines.push(`📍 <b>Manba:</b> ${esc(source)}`)
+    lines.push('')
+    if (name) lines.push(`👤 <b>Ism:</b> ${esc(name)}`)
+    if (email) lines.push(`✉️ <b>Email:</b> ${esc(email)}`)
+    if (contact) lines.push(`📞 <b>Bog'lanish:</b> ${esc(contact)}`)
+    if (subject) lines.push(`📌 <b>Mavzu:</b> ${esc(subject)}`)
+    lines.push('')
+    lines.push(`💬 ${esc(message)}`)
+    const text = lines.join('\n')
 
     const tg = await fetch(`https://api.telegram.org/bot${BOT_TOKEN}/sendMessage`, {
       method: 'POST',
